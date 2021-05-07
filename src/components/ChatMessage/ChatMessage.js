@@ -1,29 +1,19 @@
 import React from 'react';
-import { auth, db } from '../../firebase';
+import { auth } from '../../firebase';
 
-const ChatMessage = (props) => {
-    const { id, text, uid, photoURL } = props.message;
+const ChatMessage = ({ message }) => {
+  const { id, text, uid, photoURL } = message;
 
-    const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-    const messagesRef = db.collection('messages');
+  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
-    const deleteMessage = async () => {
-        await messagesRef.doc(id).delete();
-    };
-
-    return (
-        <div>
-            {
-                messageClass === 'sent' ? (
-
-                    <h1>{text}</h1>
-                ) :
-                    (
-                        <h1>No</h1>
-                    )
-            }
-        </div>
-    );
+  return (
+    <div key={id}>
+      <div className={`message ${messageClass}`}>
+        <img src={photoURL} alt='user' />
+        <p>{text}</p>
+      </div>
+    </div>
+  );
 };
 
 export default ChatMessage;

@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth } from './firebase';
 import Login from './components/Auth/Login';
-import ChatRoom from './components/ChatRoom/ChatRoom'
+import ChatRoom from './components/ChatRoom/ChatRoom';
 import { darkTheme } from './theme';
 
 import './App.css';
@@ -18,11 +18,7 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        {user ? (
-          <ChatRoom />
-        ) : (
-          <Login />
-        )}
+        <div className='App'>{user ? <ChatRoom /> : <Login />}</div>
       </ThemeProvider>
     </>
   );
