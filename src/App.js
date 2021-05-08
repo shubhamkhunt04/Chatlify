@@ -6,6 +6,7 @@ import { auth } from './firebase';
 import Login from './components/Auth/Login';
 import ChatRoom from './components/ChatRoom/ChatRoom';
 import Loader from './components/Loader/Loader';
+import { darkTheme, lightTheme } from './theme';
 
 import './App.css';
 
@@ -16,7 +17,7 @@ const App = () => {
 
   return (
     <>
-      <ThemeProvider>
+      <ThemeProvider theme={darkTheme}>
         <div className='App'>{user ? <ChatRoom /> : <Login />}</div>
       </ThemeProvider>
     </>

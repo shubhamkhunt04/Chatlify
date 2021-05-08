@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: '25ch',
     },
-    background: 'black',
     padding: '20px',
     width: '600px',
     margin: 'auto',
@@ -18,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: '#f0db72',
     textAlign: 'center',
-    marginTop: '7rem',
     marginBottom: '3rem',
   },
   textField: {
