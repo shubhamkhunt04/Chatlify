@@ -59,7 +59,7 @@ const ChatRoom = () => {
             placeholder='Enter the message here'
           />
           <button type='submit' disabled={!formValue.length}>
-            🕊️
+            send
           </button>
         </div>
       </form>
