@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import firebase from 'firebase';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import ChatMessage from '../ChatMessage/ChatMessage';
+import Navbar from '../AppNavBar/AppNavBar';
 import { auth, db } from '../../firebase';
 
 const ChatRoom = () => {
@@ -32,13 +33,9 @@ const ChatRoom = () => {
     setFormValue('');
   };
 
-  const signOut = async () => {
-    await auth.signOut();
-  };
-
   return (
     <>
-      <button onClick={signOut}>Logout</button>
+      <Navbar />
       <div>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
@@ -46,14 +43,16 @@ const ChatRoom = () => {
       </div>
 
       <form onSubmit={sendMessageHandler}>
-        <input
-          value={formValue}
-          onChange={(e) => setFormValue(e.target.value)}
-          placeholder='Enter the message here'
-        />
-        <button type='submit' disabled={!formValue.length}>
-          🕊️
-        </button>
+        <div className='chat-input-box'>
+          <input
+            value={formValue}
+            onChange={(e) => setFormValue(e.target.value)}
+            placeholder='Enter the message here'
+          />
+          <button type='submit' disabled={!formValue.length}>
+            🕊️
+          </button>
+        </div>
       </form>
     </>
   );
