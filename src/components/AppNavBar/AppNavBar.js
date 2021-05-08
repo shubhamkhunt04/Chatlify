@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, IconButton } from '@material-ui/core';
+import {
+  Brightness7 as Brightness7Icon,
+  Brightness4 as Brightness4Icon,
+} from '@material-ui/icons';
 
 import { auth } from '../../firebase';
 import appLogo from '../../assets/appLogo.svg';
@@ -22,10 +26,20 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
+  brightness: {
+    marginRight: '2rem',
+    cursor: 'pointer',
+  },
 }));
 
-const AppNavBar = () => {
+const AppNavBar = ({ themeHandler, themeToggler }) => {
   const classes = useStyles();
+
+  const [bgColor, setBgColor] = useState('black');
+
+  useEffect(() => {
+    document.body.style.backgroundColor = bgColor;
+  }, [bgColor]);
 
   return (
     <div className={classes.root}>
@@ -48,6 +62,22 @@ const AppNavBar = () => {
           >
             Chatlify
           </Typography>
+
+          {bgColor === 'black' ? (
+            <div
+              className={classes.brightness}
+              onClick={() => setBgColor(() => 'white')}
+            >
+              <Brightness7Icon />
+            </div>
+          ) : (
+            <div
+              className={classes.brightness}
+              onClick={() => setBgColor(() => 'black')}
+            >
+              <Brightness4Icon />
+            </div>
+          )}
 
           <Button
             variant='contained'

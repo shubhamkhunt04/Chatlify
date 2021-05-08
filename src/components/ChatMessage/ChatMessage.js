@@ -9,7 +9,10 @@ const ChatMessage = ({ message }) => {
   return (
     <div key={id}>
       <div className={`message ${messageClass}`}>
-        <img src={photoURL} alt='user' />
+        <img
+          src={photoURL || 'https://www.w3schools.com/howto/img_avatar.png'}
+          alt='user'
+        />
         <p>{text}</p>
       </div>
     </div>

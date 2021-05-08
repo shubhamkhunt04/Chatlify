@@ -36,13 +36,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+    height: '100vh',
   },
 }));
 
 const Login = () => {
   const classes = useStyles();
-
-  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(false);
   const [emailHelperText, setEmailHelperText] = useState('');
   const [passwordHelperText, setPasswordHelperText] = useState('');
@@ -78,7 +77,7 @@ const Login = () => {
       // new user
       await auth.createUserWithEmailAndPassword(values.email, values.password);
     } catch (err) {
-      console.log(err.message)
+      console.log(err.message);
     }
   };
 
@@ -126,7 +125,7 @@ const Login = () => {
               variant='outlined'
               color='secondary'
               startIcon={
-                <img src={googleLogo} alt='Google' width='20px' height='20px' />
+                <img src={googleLogo} alt='Google' className='google-logo' />
               }
               className={classes.textField}
               onClick={signInWithGoogle}

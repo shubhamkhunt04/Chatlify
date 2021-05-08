@@ -1,5 +1,5 @@
 body {
-  background-color: #282c34;
+  background-color: #282C34;
 }
 
 .App {
@@ -8,13 +8,18 @@ body {
   margin: 0 auto;
 }
 
+.google-logo {
+  height: 15px;
+  width: 15px;
+}
+
 /* loader style */
 
 .loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
 }
 
 .lds-ripple {
@@ -118,8 +123,9 @@ img {
   margin: 2px 5px;
 }
 
-form {
+.message-form {
   position: fixed;
+  /* top: 20; */
   bottom: 0;
   background: rgb(58, 58, 58);
   width: 100%;
