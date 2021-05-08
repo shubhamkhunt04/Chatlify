@@ -49,7 +49,7 @@ const Login = () => {
     email: '',
     password: '',
   });
-
+  console.log(error);
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
     // onInput change all the error messages are remove.

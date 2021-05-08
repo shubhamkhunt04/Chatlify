@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AppNavBar = ({ themeHandler, themeToggler }) => {
+const AppNavBar = () => {
   const classes = useStyles();
 
   const [bgColor, setBgColor] = useState('black');

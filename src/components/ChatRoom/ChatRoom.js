@@ -5,7 +5,7 @@ import ChatMessage from '../ChatMessage/ChatMessage';
 import Navbar from '../AppNavBar/AppNavBar';
 import { auth, db } from '../../firebase';
 
-const ChatRoom = ({ themeHandler, themeToggler }) => {
+const ChatRoom = () => {
   const messagesRef = db.collection('messages');
   const query = messagesRef.orderBy('createdAt').limit(200);
   const chatEnd = useRef();
@@ -35,7 +35,7 @@ const ChatRoom = ({ themeHandler, themeToggler }) => {
 
   return (
     <>
-      <Navbar themeHandler={themeHandler} themeToggler={themeToggler} />
+      <Navbar />
       <div
         style={{
           marginTop: '65px',
